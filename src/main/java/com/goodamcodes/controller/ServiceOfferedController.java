@@ -1,6 +1,6 @@
 package com.goodamcodes.controller;
 
-import com.goodamcodes.model.Constant;
+import com.goodamcodes.configuration.Constant;
 import com.goodamcodes.model.ServiceOffered;
 import com.goodamcodes.service.ServiceOfferedService;
 import org.springframework.beans.factory.annotation.Autowired;

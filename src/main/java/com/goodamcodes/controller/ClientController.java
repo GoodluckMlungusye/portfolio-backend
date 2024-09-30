@@ -1,7 +1,7 @@
 package com.goodamcodes.controller;
 
 import com.goodamcodes.model.Client;
-import com.goodamcodes.model.Constant;
+import com.goodamcodes.configuration.Constant;
 import com.goodamcodes.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

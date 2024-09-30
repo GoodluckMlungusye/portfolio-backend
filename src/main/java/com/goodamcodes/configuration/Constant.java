@@ -1,4 +1,4 @@
-package com.goodamcodes.model;
+package com.goodamcodes.configuration;
 
 import org.springframework.context.annotation.Configuration;
 
