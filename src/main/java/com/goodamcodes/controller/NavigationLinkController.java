@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = Constant.BASE_URL + "/link")
+@RequestMapping(path = Constant.BASE_URL)
 public class NavigationLinkController {
 
     @Autowired
     private NavigationLinkService navigationLinkService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/links")
     public ResponseEntity<?> getNavigationLinks(){
         List<NavigationLink> links =  navigationLinkService.getNavigationLinks();
         return ResponseEntity.status(HttpStatus.OK).body(links);
     }
 
-    @PostMapping("/new")
+    @PostMapping("/new/links")
     public ResponseEntity<String> addNavigationLink(@RequestBody NavigationLink navigationLink){
         navigationLinkService.addNavigationLink(navigationLink);
         return ResponseEntity.status(HttpStatus.CREATED).body("Navigation link added successfully");
     }
 
-    @DeleteMapping(path = "/delete/{navigationLinkId}")
+    @DeleteMapping(path = "/delete/links/{navigationLinkId}")
     public ResponseEntity<String> deleteNavigationLink(@PathVariable("navigationLinkId") Long navigationLinkId){
         navigationLinkService.deleteNavigationLink(navigationLinkId);
         return ResponseEntity.status(HttpStatus.OK).body("Navigation link deleted successfully");
     }
 
-    @PutMapping(path = "/update/{navigationLinkId}")
+    @PutMapping(path = "/update/links/{navigationLinkId}")
     public ResponseEntity<String> updateNavigationLink(
             @PathVariable("navigationLinkId") Long navigationLinkId,
             @RequestBody NavigationLink navigationLink
