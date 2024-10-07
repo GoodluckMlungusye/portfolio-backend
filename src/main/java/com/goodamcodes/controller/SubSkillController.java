@@ -11,30 +11,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = Constant.BASE_URL + "/subSkill")
+@RequestMapping(path = Constant.BASE_URL)
 public class SubSkillController {
     @Autowired
     private SubSkillService subSkillService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/subskills")
     public ResponseEntity<?> getSubSkills(){
         List<SubSkill> subSkills =  subSkillService.getSubSkills();
         return ResponseEntity.status(HttpStatus.OK).body(subSkills);
     }
 
-    @PostMapping("/new")
+    @PostMapping("/new/subskills")
     public ResponseEntity<String> addSubSkill(@RequestBody SubSkill subSkill){
         subSkillService.addSubSkill(subSkill);
         return ResponseEntity.status(HttpStatus.CREATED).body("Sub-skill added successfully");
     }
 
-    @DeleteMapping(path = "/delete/{subSkillId}")
+    @DeleteMapping(path = "/delete/subskills/{subSkillId}")
     public ResponseEntity<String> deleteSubSkill(@PathVariable("subSkillId") Long subSkillId){
         subSkillService.deleteSubSkill(subSkillId);
         return ResponseEntity.status(HttpStatus.OK).body("Sub-skill deleted successfully");
     }
 
-    @PutMapping(path = "/update/{subSkillId}")
+    @PutMapping(path = "/update/subskills/{subSkillId}")
     public ResponseEntity<String> updateSubSkill(
             @PathVariable("subSkillId") Long subSkillId,
             @RequestBody SubSkill subSkill

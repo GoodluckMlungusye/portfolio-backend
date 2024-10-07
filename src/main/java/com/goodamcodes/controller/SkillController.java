@@ -11,30 +11,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = Constant.BASE_URL + "/skill")
+@RequestMapping(path = Constant.BASE_URL)
 public class SkillController {
     @Autowired
     private SkillService skillService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/skills")
     public ResponseEntity<?> getSkills(){
         List<Skill> skills =  skillService.getSkills();
         return ResponseEntity.status(HttpStatus.OK).body(skills);
     }
 
-    @PostMapping("/new")
+    @PostMapping("/new/skills")
     public ResponseEntity<String> addSkill(@RequestBody Skill skill){
         skillService.addSkill(skill);
         return ResponseEntity.status(HttpStatus.CREATED).body("Skill added successfully");
     }
 
-    @DeleteMapping(path = "/delete/{skillId}")
+    @DeleteMapping(path = "/delete/skills/{skillId}")
     public ResponseEntity<String> deleteSkill(@PathVariable("skillId") Long skillId){
         skillService.deleteSkill(skillId);
         return ResponseEntity.status(HttpStatus.OK).body("Skill deleted successfully");
     }
 
-    @PutMapping(path = "/update/{skillId}")
+    @PutMapping(path = "/update/skills/{skillId}")
     public ResponseEntity<String> updateSkill(
             @PathVariable("skillId") Long skillId,
             @RequestBody Skill skill

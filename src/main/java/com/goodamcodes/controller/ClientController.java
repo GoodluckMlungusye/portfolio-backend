@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = Constant.BASE_URL + "/client")
+@RequestMapping(path = Constant.BASE_URL)
 public class ClientController {
 
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/clients")
     public ResponseEntity<?> getClients(){
         List<Client> clients = clientService.getClients();
         return ResponseEntity.status(HttpStatus.OK).body(clients);
     }
 
-    @PostMapping("/new")
+    @PostMapping("/new/clients")
     public ResponseEntity<String> addClient(@RequestBody Client client){
         clientService.addClient(client);
         return ResponseEntity.status(HttpStatus.CREATED).body("Email sent successfully");
     }
 
-    @DeleteMapping(path = "/delete/{clientId}")
+    @DeleteMapping(path = "/delete/clients/{clientId}")
     public ResponseEntity<String>  deleteClient(@PathVariable("clientId") Long clientId){
         clientService.deleteClient(clientId);
         return ResponseEntity.status(HttpStatus.OK).body("Client deleted successfully");

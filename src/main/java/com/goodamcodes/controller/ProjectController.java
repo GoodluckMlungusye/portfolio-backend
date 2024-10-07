@@ -14,19 +14,19 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = Constant.BASE_URL + "/project")
+@RequestMapping(path = Constant.BASE_URL)
 public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/projects")
     public ResponseEntity<?> getProjects(){
         List<Project> projects =  projectService.getProjects();
         return ResponseEntity.status(HttpStatus.OK).body(projects);
     }
 
-    @PostMapping(value = "/new")
+    @PostMapping(value = "/new/projects")
     public ResponseEntity<String> addProject(@RequestParam("name") String name,
                                              @RequestParam("technology") String technology,
                                              @RequestParam("projectLink") String projectLink,
@@ -52,13 +52,13 @@ public class ProjectController {
         }
     }
 
-    @DeleteMapping(path = "/delete/{projectId}")
+    @DeleteMapping(path = "/delete/projects/{projectId}")
     public ResponseEntity<String> deleteProject(@PathVariable("projectId") Long projectId){
         projectService.deleteProject(projectId);
         return ResponseEntity.status(HttpStatus.OK).body("Project deleted successfully");
     }
 
-    @PutMapping(path = "/update/{projectId}")
+    @PutMapping(path = "/update/projects/{projectId}")
     public ResponseEntity<String> updateProject( @PathVariable("projectId") Long projectId,
                                                  @RequestParam("name") String name,
                                                  @RequestParam("technology") String technology,

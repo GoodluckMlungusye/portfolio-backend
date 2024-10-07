@@ -14,19 +14,19 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = Constant.BASE_URL + "/service")
+@RequestMapping(path = Constant.BASE_URL)
 public class ServiceOfferedController {
 
     @Autowired
     private ServiceOfferedService serviceOfferedService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/services")
     public ResponseEntity<?> getServiceOfferedList(){
         List<ServiceOffered> serviceOfferedList =  serviceOfferedService.getServiceOfferedList();
         return ResponseEntity.status(HttpStatus.OK).body(serviceOfferedList);
     }
 
-    @PostMapping(value = "/new")
+    @PostMapping(value = "/new/services")
     public ResponseEntity<String> addServiceOffered( @RequestParam("description") String description,
                                                      @RequestParam("name") String name,
                                                      @RequestParam("file") MultipartFile file){
@@ -40,13 +40,13 @@ public class ServiceOfferedController {
         }
     }
 
-    @DeleteMapping(path = "/delete/{serviceOfferedId}")
+    @DeleteMapping(path = "/delete/services/{serviceOfferedId}")
     public ResponseEntity<String> deleteServiceOffered(@PathVariable("serviceOfferedId") Long serviceOfferedId){
         serviceOfferedService.deleteServiceOffered(serviceOfferedId);
         return ResponseEntity.status(HttpStatus.OK).body("Service deleted successfully");
     }
 
-    @PutMapping(path = "/update/{serviceOfferedId}")
+    @PutMapping(path = "/update/services/{serviceOfferedId}")
     public ResponseEntity<String> updateServiceOffered(  @PathVariable("serviceOfferedId") Long serviceOfferedId,
                                                          @RequestParam("description") String description,
                                                          @RequestParam("name") String name,

@@ -14,19 +14,19 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = Constant.BASE_URL + "/explore")
+@RequestMapping(path = Constant.BASE_URL)
 public class ExploreController {
 
     @Autowired
     private ExploreService exploreService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/explore")
     public ResponseEntity<?> getExploreList(){
         List<Explore> exploreList =  exploreService.getExploreList();
         return ResponseEntity.status(HttpStatus.OK).body(exploreList);
     }
 
-    @PostMapping(value = "/new")
+    @PostMapping(value = "/new/explore")
     public ResponseEntity<String> addExplore(@RequestParam("description") String description,
                                              @RequestParam("counts") int counts,
                                              @RequestParam("file") MultipartFile file){
@@ -40,13 +40,13 @@ public class ExploreController {
         }
     }
 
-    @DeleteMapping(path = "/delete/{exploreId}")
+    @DeleteMapping(path = "/delete/explore/{exploreId}")
     public ResponseEntity<String> deleteExplore(@PathVariable("exploreId") Long exploreId){
         exploreService.deleteExplore(exploreId);
         return ResponseEntity.status(HttpStatus.OK).body("Explore Object deleted successfully");
     }
 
-    @PutMapping(path = "/update/{exploreId}")
+    @PutMapping(path = "/update/explore/{exploreId}")
     public ResponseEntity<String> updateExplore(@PathVariable("exploreId") Long exploreId,
                                                 @RequestParam("description") String description,
                                                 @RequestParam("counts") int counts,
