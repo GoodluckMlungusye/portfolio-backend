@@ -28,7 +28,7 @@ public class ProjectService {
     public void addProject(
             String name,
             String technology,
-            int rate,
+            double rate,
             String projectLink,
             String colorCode,
             Boolean isHosted,
@@ -66,7 +66,7 @@ public class ProjectService {
             Long projectId,
             String name,
             String technology,
-            int rate,
+            double rate,
             String projectLink,
             String colorCode,
             Boolean isHosted,

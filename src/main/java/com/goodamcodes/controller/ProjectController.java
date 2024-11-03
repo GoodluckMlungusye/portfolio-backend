@@ -30,7 +30,7 @@ public class ProjectController {
     public ResponseEntity<String> addProject(@RequestParam("name") String name,
                                              @RequestParam("technology") String technology,
                                              @RequestParam("projectLink") String projectLink,
-                                             @RequestParam("rate") int rate,
+                                             @RequestParam("rate") double rate,
                                              @RequestParam("colorCode") String colorCode,
                                              @RequestParam("isHosted") Boolean isHosted,
                                              @RequestParam("file") MultipartFile file){
@@ -63,7 +63,7 @@ public class ProjectController {
                                                  @RequestParam("name") String name,
                                                  @RequestParam("technology") String technology,
                                                  @RequestParam("projectLink") String projectLink,
-                                                 @RequestParam("rate") int rate,
+                                                 @RequestParam("rate") double rate,
                                                  @RequestParam("colorCode") String colorCode,
                                                  @RequestParam("isHosted") Boolean isHosted,
                                                  @RequestParam("file") MultipartFile file){

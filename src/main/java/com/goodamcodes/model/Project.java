@@ -25,7 +25,7 @@ public class Project {
     private Long id;
     private String name;
     private String technology;
-    private int rate;
+    private double rate;
     private String projectLink;
     private String colorCode;
     private String image;

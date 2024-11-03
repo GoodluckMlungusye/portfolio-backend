@@ -26,7 +26,6 @@ public class SubSkill {
     private Long id;
     private String name;
     private int percentageLevel;
-    private String skillClass;
 
     @ManyToOne
     @JoinColumn(name = "skill_id")

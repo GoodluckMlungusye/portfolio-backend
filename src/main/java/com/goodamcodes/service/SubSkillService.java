@@ -44,7 +44,6 @@ public class SubSkillService {
         existingSubSkill.setName(subSkill.getName());
         existingSubSkill.setSkill(subSkill.getSkill());
         existingSubSkill.setPercentageLevel(subSkill.getPercentageLevel());
-        existingSubSkill.setSkillClass(subSkill.getSkillClass());
         subSkillRepository.save(existingSubSkill);
     }
 }
