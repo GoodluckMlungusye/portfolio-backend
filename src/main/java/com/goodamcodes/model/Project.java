@@ -26,7 +26,7 @@ public class Project {
     private String name;
     private String technology;
     private double rate;
-    private String projectLink;
+    private String repository;
     private String colorCode;
     private String image;
     private Boolean isHosted;

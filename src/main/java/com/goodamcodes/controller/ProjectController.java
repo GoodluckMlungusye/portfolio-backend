@@ -29,7 +29,7 @@ public class ProjectController {
     @PostMapping(value = "/new/projects")
     public ResponseEntity<String> addProject(@RequestParam("name") String name,
                                              @RequestParam("technology") String technology,
-                                             @RequestParam("projectLink") String projectLink,
+                                             @RequestParam("repository") String repository,
                                              @RequestParam("rate") double rate,
                                              @RequestParam("colorCode") String colorCode,
                                              @RequestParam("isHosted") Boolean isHosted,
@@ -39,7 +39,7 @@ public class ProjectController {
                         name,
                         technology,
                         rate,
-                        projectLink,
+                        repository,
                         colorCode,
                         isHosted,
                         file
@@ -62,7 +62,7 @@ public class ProjectController {
     public ResponseEntity<String> updateProject( @PathVariable("projectId") Long projectId,
                                                  @RequestParam("name") String name,
                                                  @RequestParam("technology") String technology,
-                                                 @RequestParam("projectLink") String projectLink,
+                                                 @RequestParam("repository") String repository,
                                                  @RequestParam("rate") double rate,
                                                  @RequestParam("colorCode") String colorCode,
                                                  @RequestParam("isHosted") Boolean isHosted,
@@ -73,7 +73,7 @@ public class ProjectController {
                     name,
                     technology,
                     rate,
-                    projectLink,
+                    repository,
                     colorCode,
                     isHosted,
                     file

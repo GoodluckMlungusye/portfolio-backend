@@ -23,6 +23,7 @@ public class ServiceOffered {
     )
     private Long id;
     private String name;
+    @Lob
     private String description;
     private String image;
 }

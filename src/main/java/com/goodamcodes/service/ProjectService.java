@@ -29,7 +29,7 @@ public class ProjectService {
             String name,
             String technology,
             double rate,
-            String projectLink,
+            String repository,
             String colorCode,
             Boolean isHosted,
             MultipartFile file)
@@ -46,7 +46,7 @@ public class ProjectService {
             project.setName(name);
             project.setTechnology(technology);
             project.setRate(rate);
-            project.setProjectLink(projectLink);
+            project.setRepository(repository);
             project.setColorCode(colorCode);
             project.setIsHosted(isHosted);
             project.setImage(fileUrl);
@@ -67,7 +67,7 @@ public class ProjectService {
             String name,
             String technology,
             double rate,
-            String projectLink,
+            String repository,
             String colorCode,
             Boolean isHosted,
             MultipartFile file)
@@ -82,7 +82,7 @@ public class ProjectService {
             existingProject.setName(name);
             existingProject.setTechnology(technology);
             existingProject.setRate(rate);
-            existingProject.setProjectLink(projectLink);
+            existingProject.setRepository(repository);
             existingProject.setColorCode(colorCode);
             existingProject.setIsHosted(isHosted);
             existingProject.setImage(fileUrl);
